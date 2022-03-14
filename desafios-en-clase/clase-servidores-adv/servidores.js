@@ -1,0 +1,20 @@
+//
+const express = require('express')
+const app = express()
+const PORT = 8080;
+
+const server = app.listen(PORT, () => {
+    console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
+ })
+ 
+
+const frase = 'Hola mundo cómo están'
+
+app.get('/api/frase', (req, res) => {
+    res.json({
+        frase
+    })
+})
+
+
+
