@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
-const uuidv4 = require("uuid/v4")
+// const uuidv4 = require("uuid/v4")
+
 
 class Contenedor {
     constructor(filename) {
@@ -11,14 +12,14 @@ class Contenedor {
         try {
             const parsedFile = await this.getParsedFileOrCreateIfNotExists();
 
-            element.id = uuidv4();
+            element.id = parseInt(Math.random())*50;
             parsedFile.push(element);
 
             await fs.promises.writeFile(this.filename, JSON.stringify(parsedFile), "utf-8");
 
             return element.id;
         } catch (error) {
-            throw new Error(`Error :  ${error.message}`);
+            console.log(error)
         }
     }
 
@@ -59,7 +60,7 @@ class Contenedor {
 
             if (!element) throw new Error(`Element with ID ${id} doesn't exist`);
 
-            const filteredArray = parsedFile.filter(el => el.id !== id);
+            const filteredArray = parsedFile.filter(el => el.id !== id); //  
             await fs.promises.writeFile(this.filename, JSON.stringify(filteredArray));
         } catch (error) {
             console.error(error);
@@ -91,7 +92,7 @@ class Contenedor {
         }
     }
 }
-
+// IIFE 
 (async () => {
     const a = new Contenedor(path.join(__dirname, '..', 'temp', 'products.txt'));
 
