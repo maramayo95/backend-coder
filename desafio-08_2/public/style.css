@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(22, 22, 208, 0.503);
+    padding: 30px;
+    width: 50vw;
+    border-radius: 20px;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+}
+
+.send-message input{
+    width: 35vw;
+}

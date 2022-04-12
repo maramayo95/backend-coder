@@ -7,14 +7,16 @@ const HistoryChat = require("./api/chat");
 // Se puede llamar con una variable y con eso uno va a la ruta que tiene en routes
 const myRoutes = require("./api/routes");
 
-module.exports = myRoutes;
+//module.exports = myRoutes;
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
 
 const storProd = new Productos();
 const history = new HistoryChat();
-const messages = [];
+// console.log(storProd, history)
+
+//const messages = [];
 io.on("connection", async (socket) => {
   // Esto se ejecuta por cada cliente conectado
   console.log("Un cliente se ha conectado");
