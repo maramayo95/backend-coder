@@ -1,0 +1,44 @@
+
+1) show dbs : muestra las bases de datos
+2) use ecommerce : crea la base de datos
+3) db : devuelve la base de datos seleccionada (ecommerce)
+4) db.createCollection("mensajes") : Crea la colección mensajes
+5) db.createCollection("productos"): Crea la colección productos.
+6) db.productos.insertMany([[
+    {id:"1",name:"Guitar Fender Stratocaster", price:5000, thumbnail: "www.www.com"},
+    {id:"2" ,name:"Guitar Gibson Les Paul", price:3000, thumbnail: "www.www.com"},
+    {id:"3" ,name:"Guitar Squire Stratocaster", price:1500, thumbnail: "www.www.com"},
+    {id: "4",name:"Guitar Epiphone Les Paul Standard", price:1200, thumbnail: "www.www.com"},
+    {id:"5" ,name:"Guitar Epiphone Les Paul Classic", price:800, thumbnail: "www.www.com"},
+    {id:"6" ,name:"Guitar Sx Squier", price:300, thumbnail: "www.www.com"},
+    {id: "7",name:"Guitar Sx Stratocaster", price:350, thumbnail: "www.www.com"},
+    {id:"8" ,name:"Guitar Fender Vintage American Standard", price:6000, thumbnail: "www.www.com"},
+    {id:"9" ,name:"Guitar Epiphone Casino John Lennon Edition  ", price:2500, thumbnail: "www.www.com"},
+    {id:"10" ,name:"Guitar Epiphone Casino John Lennon Edition 69 ", price:5000, thumbnail: "www.www.com"},
+])
+CREA TODOS LOS PRODUCTOS
+7)db.productos.find() : CHECKEO SI LOS PRODUTOS SE CREARON 
+8) db.mensajes.insertMany( [
+    {author: "Luis Salinas", message:"Siempre me llevé bien con las les paul"},
+    {author: "Luis Alberto Spinetta", message:"Yo siempre le pedí a mi luthier Miranda que haga la que quiero"},
+    {author: "Javier Malosetti", message:"Yo siempre uso guitarra de caja"},
+    {author: "Roberto Napolitano", message:"Yo toqué con BB King, ya gane"},
+    {author: "Keith Richards", message:"I don't know what are you saying guys..."},
+    {author: "David Guilmour", message:"I use to play Fender Stratocaster, i love Delay effect"},
+    {author: "John Lennon", message:"I love the clean Guitar, i love my casino"},
+    {author: "Ringo Star", message:"Hi! , im a drumm player"},
+    {author: "Chris Cornell", message:"Y si tocamos una que nos sepamos todos?"},
+    {author: "Kurco Bein", message:"Con barbijo por favor..."},
+])
+9) db.mensajes.find() : Retorna todos los mensajes
+10) db.productos.insertOne({name:"Epiphone Telecaster", price:500, thumbnail:"www.www.com"}) . Insertar un producto
+11) db.productos.find(): Retornan todos los productos
+12) db.productos.find({price:{$lt:1000}}) Lista productos menores a 1000 pesos
+13) db.productos.find({ price: {$gt:1000, $lt: 3000 }})
+14) db.productos.find({price:{$gt:3000}}) Lista productos mayores a 3000
+15) db.productos.find({},{name:1}).sort({price:1}).limit(1).skip(2) Encuentra todos los productos, pido que devuelva solo el nombre. Ordena de menor a mayor. Limita uno y muestra que saltee 3.
+16) db.productos.find({},{name:1}).sort({price:1}).limit(1).skip(2) Encuentra todos los productos, pido que devuelva solo el nombre. Ordena de menor a mayor. Limita uno y muestra que saltee 3
+17) db.productos.updateMany({}, {$set:{stock:100}})  Se agrega una nueva clave valor. Stock:100 
+18) db.productos.updateMany({price:{$gt:4000}}, {$set:{stock:0}})  Actualiza los productos al stock 0 que cumplan con la condición de tener un precio mayor a 4000
+19) db.productos.deleteMany({price:{$lt:1000}}) Elimina productos con precio menor a mil
+20)
