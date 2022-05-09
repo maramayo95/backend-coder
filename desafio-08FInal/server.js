@@ -1,8 +1,8 @@
 /* MODULOS */
 const express = require('express');
-const { get } = require('express/lib/response');
 const { Server: HttpServer } = require("http");
 const { Server: IOServer } = require("socket.io");
+const generateRandomProduct = require('./src/containers/FakerContainer')
 
 const Container = require("./src/containers/Container");
 const { optionsMySQL } = require("./src/utils/optionsMySQL");
@@ -19,9 +19,15 @@ const io = new IOServer(httpServer);
 const apiProducts = new Container(optionsMySQL, tableProducts);
 const apiMessages = new Container(optionsSQLite, tableMessages);
 
+const listProd = generateRandomProduct(5)
 
 app.get('/', (req, res) => {res.render('index');})
+app.get('/api/productos-test', (req, res) => {res.render('fakeProd', {listProd: listProd});})
 
+//app.get('/api/productos-test', (req,res)=> {res.status(200).json(listProd)})
+
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 /* WEBSOCKET */
 io.on("connection", async (socket) => {
