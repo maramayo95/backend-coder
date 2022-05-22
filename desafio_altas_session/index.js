@@ -2,7 +2,7 @@ import express from 'express'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 import 'dotenv/config'
-
+import fkr from './class/fkr.js'
 
 const app = express()
 
@@ -27,7 +27,8 @@ app.use(session({
 
 app.get('/productos', (req,res)=> {
     if(req.session.user){
-        res.render('products')
+        const list = fkr()
+        res.render('products', {list})
     } else {
         res.redirect('/login')
     }
