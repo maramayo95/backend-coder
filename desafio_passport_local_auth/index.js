@@ -8,7 +8,7 @@ import rutas from './src/routes/routes.js'
 
 import passport from "passport";
 import { objStrategy, objStrategySignup } from "./src/middlewares/passportLocal.js"
-
+//app
 const app = express()
 
 passport.use('login', objStrategy);
