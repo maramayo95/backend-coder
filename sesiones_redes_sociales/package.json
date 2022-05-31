@@ -1,0 +1,20 @@
+{
+  "name": "sesiones_redes_sociales",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "passport": "^0.6.0",
+    "passport-google-oauth": "^2.0.0"
+  }
+}

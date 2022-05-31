@@ -1,0 +1,45 @@
+doctype html 
+html(lang="es")
+    head
+        style 
+            include style.css
+        title Registro 
+    body
+        .contenedor 
+            h1 Registrarse Aqui
+            form(
+                class="form"
+                action="/registro"
+                method="post"
+                role="form"
+                autocomplete="off"
+                )
+                .form-input 
+                    input(
+                        id="nombre"
+                        name="nombre"
+                        placeholder="nombre"
+                        type="text" required 
+                        ) 
+                .form-input 
+                    input(
+                        id="password"
+                        name="password"
+                        placeholder="password"
+                        type="password" required 
+                        )
+                .form-input 
+                    input(
+                        id="direccion"
+                        name="direccion"
+                        placeholder="direccion"
+                        type="text" required 
+                        )
+                .form-button
+                    button(
+                        type="submit"
+                        value="login"
+                    ) Enviar 
+                .anchor
+                    a(href="/login") Ir a Login
+

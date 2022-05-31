@@ -1,0 +1,13 @@
+doctype html 
+html(lang="es")
+    head
+        style 
+            include style.css
+        title Bienvenido 
+    body 
+        h1 User Ok Login! 
+        h2 Bienvenido #{datos.nombre} 
+        br
+        h3 direccion : #{datos.direccion}  
+        h4 visitas : #{contador}
+        a(href="/logout") Desloguearse
