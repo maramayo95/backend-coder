@@ -3,7 +3,7 @@ import passport from "passport";
 import { isAuth } from '../middlewares/authenticated.js'
 import {objInfo} from '../utils/info.js'
 import { fork } from "child_process";
-
+import 'dotenv/config'
 const rutas = Router()
 
 
@@ -36,27 +36,19 @@ rutas.get('/logout', isAuth, (req, res) => {
     })
 })
 
-// routes.get('/', isAuth, (req, res) => res.render('products', {
-//     user: req.user
-// }))
+
 
 rutas.get('/info', (req,res)=> {
     res.render('info', {data : objInfo})
 })
 
-rutas.get('/api/random', (req,res)=> {
-   const cantidad = req.query.cantidad || 100000000
-    
-    
+rutas.get('/api/random', (req, res) => {
+    const child = fork('./random.js');
+    child.send('start')
 
-    console.log("Ejecutando la funcion randomNumbers");
-
-    const child = fork("random.js", cantidad)
-
-    child.on("message", function (respuesta) {
-        res.send(respuesta)
-    });
-
+    child.on('message', operation => {
+    res.send({ operation: operation });
+  });
 })
 
 /**
