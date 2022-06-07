@@ -42,14 +42,17 @@ rutas.get('/info', (req,res)=> {
     res.render('info', {data : objInfo})
 })
 
-rutas.get('/api/random', (req, res) => {
-    const child = fork('./random.js');
-    child.send('start')
+    rutas.get('/api/random', (req, res) => {
+        let cant = req.query.cant || 100000000;
+        let passCant = ['' + cant + '']
+        const child = fork('./random.js');
+        child.send(passCant);
+        child.on('message', (operation) => {
+        // res.send(JSON.stringify(operation));
+        res.render('random', {operation: operation})
+      });
+    })
 
-    child.on('message', operation => {
-    res.send({ operation: operation });
-  });
-})
 
 /**
  * Rutas para autenticar
