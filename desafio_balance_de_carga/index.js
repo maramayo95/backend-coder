@@ -52,7 +52,7 @@ const args = minimist(process.argv.slice(2))
 const PORT = args.puerto || 8080 
 const modoServer = args.modo || 'Fork'
 
-//node index --modo CLUSTER => PARA EJECUTAR 
+// node index --modo CLUSTER => PARA EJECUTAR 
 // forever start index.js para hacer andar el forever
 //  forever list => para ver las lista de procesos activos
 // ejecutar en powershell  tasklist /fi "imagename eq node.exe"
@@ -61,6 +61,14 @@ const modoServer = args.modo || 'Fork'
 // pm2 list => para listar en powershell
 // pm2 monit => para escuchar todos los procesos 
 // hacer pruebas de finalización =>  pm2 start index.js --watch
+
+// pm2 start index.js –name servidor-8082 – –puerto 8082 –modo CLUSTER
+
+// pm2 start index.js –name servidor-8081 – –puerto 8081
+
+// pm2 start index.js –name servidor-8080 – –puerto 8080
+
+// pm2 start index.js –name servidor-8083 – –puerto 8083 –modo CLUSTER
 
 
 if (modoServer == 'CLUSTER') {
